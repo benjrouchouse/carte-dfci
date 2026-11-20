@@ -1,4 +1,4 @@
-const V='dfci-v13', TILES='dfci-tiles-v1';
+const V='dfci-v14', TILES='dfci-tiles-v1';
 self.addEventListener('install',e=>{ e.waitUntil(caches.open(V).then(c=>c.addAll(['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png'].map(u=>new Request(u,{cache:'reload'})))).then(()=>self.skipWaiting())); });
 self.addEventListener('activate',e=>{ e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==V&&k!==TILES).map(k=>caches.delete(k)))).then(()=>self.clients.claim())); });
 const TILE_HOSTS=['data.geopf.fr','s3.amazonaws.com','tile.opentopomap.org','tile.openstreetmap.org'];
